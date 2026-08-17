@@ -1,0 +1,37 @@
+<section class="section-moat reveal" id="moat" data-nav-title="The Moat">
+  <div class="container">
+    <h2 class="label">THE MOAT</h2>
+    <div class="moat-grid">
+      <article class="moat-item">
+        <h3 class="bento-title">The Data Flywheel</h3>
+        <p class="bento-text">Every action taken by an ARO generates outcome data. The system gets measurably smarter with every execution.</p>
+      </article>
+      <article class="moat-item">
+        <h3 class="bento-title">Safety & Trust Architecture</h3>
+        <p class="bento-text">A proprietary 6-layer safety system ensures AROs operate within strict regulatory bounds, earning autonomy from "Cold" to "Indispensable."</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-moat {
+      background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 50px 50px; animation: pan-grid 10s linear infinite;
+  }
+
+  @keyframes pan-grid { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
+
+  .moat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 50px;
+      text-align: left; max-width: 900px; margin-left: auto; margin-right: auto;
+      position: relative; z-index: 10; align-items: stretch; width: 100%;
+  }
+
+  .moat-grid .moat-item { align-items: center; text-align: center; }
+  .moat-grid .bento-text { text-align: center; }
+
+  @media (max-width: 768px) {
+      .moat-grid { grid-template-columns: 1fr; }
+  }
+</style>

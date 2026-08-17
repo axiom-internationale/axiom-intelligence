@@ -1,0 +1,35 @@
+<section class="ecosystem reveal" id="ecosystem" data-nav-title="The Ecosystem Horizon">
+  <div class="container">
+    <h2 class="label">THE ECOSYSTEM HORIZON</h2>
+    <p>Because the core engine is domain-agnostic, Axiom will deploy AROs to create decentralized alternatives to global monopolies.</p>
+    <div class="bento-grid ecosystem-grid">
+      <article class="bento-item"><h3 class="bento-title">Open Mobility & Media</h3></article>
+      <article class="bento-item"><h3 class="bento-title">Autonomous R&D</h3></article>
+      <article class="bento-item"><h3 class="bento-title">Open Finance & Logistics</h3></article>
+      <article class="bento-item"><h3 class="bento-title">Open School Learning</h3></article>
+      <article class="bento-item"><h3 class="bento-title">Large-Scale Data Foundry</h3></article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ecosystem {
+      background-image: linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 100px 100px; animation: pan-right 25s linear infinite;
+  }
+
+  @keyframes pan-right { 0% { background-position: 0 0; } 100% { background-position: 100px 0; } }
+
+  .ecosystem-grid { grid-template-columns: repeat(5, 1fr); }
+
+  .ecosystem-grid .bento-item { align-items: center; text-align: center; }
+  .ecosystem-grid .bento-text { text-align: center; }
+
+  @media (max-width: 1024px) {
+      .ecosystem-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+      .ecosystem-grid { grid-template-columns: 1fr; }
+  }
+</style>

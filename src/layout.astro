@@ -1,0 +1,73 @@
+---
+import './styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content={title}>
+    <meta name="description" content={description}>
+    <meta name="keywords" content="AI, Superintelligence, Autonomous Research, ARO, Deep Tech, Axiom Intelligence, AI Infrastructure, B2B AI">
+    <meta name="author" content="Priyanshu Sharma">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.axiomintelligence.com/">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axiomintelligence.com/">
+    <meta property="og:title" content="Axiom Intelligence - Autonomous Research Organisms">
+    <meta property="og:description" content="A Self-Evolving Superintelligence Engine for Autonomous Research Organisms. Bridging the gap between digital intelligence and physical execution.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/050505/FFFFFF?text=Axiom+Intelligence">
+    <meta property="og:site_name" content="Axiom Intelligence">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.axiomintelligence.com/">
+    <meta name="twitter:title" content="Axiom Intelligence - Autonomous Research Organisms">
+    <meta name="twitter:description" content="A Self-Evolving Superintelligence Engine for Autonomous Research Organisms.">
+    <meta name="twitter:image" content="https://via.placeholder.com/1200x630/050505/FFFFFF?text=Axiom+Intelligence">
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Axiom Intelligence",
+      "url": "https://www.axiomintelligence.com",
+      "logo": "sun.png",
+      "description": "A self-evolving superintelligence engine for autonomous research organisms (AROs).",
+      "founder": { "@type": "Person", "name": "Priyanshu Sharma" },
+      "contactPoint": { "@type": "ContactPoint", "email": "founders@axiomintelligence.com", "contactType": "customer support" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Bhiwadi", "addressRegion": "New York" }
+    })} />
+
+    <link rel="icon" href="sun.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <slot />
+
+    <!-- Astro processes this script via Vite. 
+         Imports MUST be inside the script tag. -->
+    <script>
+      import { initAxiomInteractions } from './scripts/interactions';
+      
+      // Astro <script> tags are bundled as modules (type="module"), 
+      // so they execute after the DOM is parsed by default.
+      // No DOMContentLoaded wrapper is needed!
+      initAxiomInteractions();
+    </script>
+</body>
+</html>

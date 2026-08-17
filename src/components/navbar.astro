@@ -1,0 +1,137 @@
+<header class="navbar">
+  <img src="sun.png" class="nav-logo-img" alt="Axiom Intelligence Logo">
+  
+  <div class="nav-center">
+    <div class="nav-title" id="navTitle">Axiom Intelligence</div>
+    <span class="nav-location">Bhiwadi - New York</span>
+  </div>
+  
+  <div class="nav-right">
+    <div class="status-indicator" aria-label="System Operational">
+      <span class="status-dot"></span>
+      <span class="status-text">Operational</span>
+    </div>
+    <button class="nav-menu-btn" id="menuToggle" aria-label="Open Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Main Menu">
+  <button class="overlay-close-btn" id="menuClose" aria-label="Close Menu">&times;</button>
+  <nav class="overlay-nav">
+    <a href="#paradigm-shift">The Paradigm Shift</a>
+    <a href="#aro-loop">The ARO Loop</a>
+    <a href="#ecosystem">The Ecosystem Horizon</a>
+    <a href="#deployment">Current Deployment</a>
+    <a href="#moat">The Moat</a>
+    <a href="#philosophy">Philosophy</a>
+  </nav>
+</div>
+
+<style>
+  .navbar {
+      position: fixed; top: 2px; left: 0; width: 100%;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 48px;
+      background: rgba(5, 5, 5, 0.6);
+      backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+      z-index: 1000; border-bottom: 1px solid var(--line-color);
+  }
+
+  .nav-logo-img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+  }
+
+  .nav-center {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; line-height: 1.3;
+      pointer-events: none;
+  }
+
+  .nav-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-white); font-weight: 500;
+      transition: opacity 0.3s ease;
+  }
+
+  .nav-location {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted-grey); margin-top: 4px;
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 24px; }
+
+  .status-indicator { display: flex; align-items: center; gap: 8px; padding-right: 8px; }
+  .status-dot {
+      width: 8px; height: 8px; background-color: var(--status-green);
+      border-radius: 50%; box-shadow: 0 0 8px var(--status-green);
+      animation: status-pulse 2s infinite;
+  }
+  .status-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--label-grey); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  @keyframes status-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(0, 230, 118, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
+  }
+
+  .nav-menu-btn {
+      background: transparent; border: none; color: var(--text-white);
+      cursor: pointer; padding: 4px; display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.3s ease;
+  }
+  .nav-menu-btn:hover { opacity: 0.6; }
+  .nav-menu-btn svg { width: 24px; height: 24px; }
+
+  /* Overlay Menu */
+  .overlay-menu {
+      position: fixed; top: 0; right: 0; width: 100%; height: 100vh;
+      background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(20px); z-index: 1500;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+  .overlay-menu.active { opacity: 1; visibility: visible; }
+  .overlay-nav { display: flex; flex-direction: column; gap: 32px; text-align: center; }
+  .overlay-nav a {
+      font-family: 'Inter', sans-serif; font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: var(--text-grey); text-decoration: none; font-weight: 300;
+      transition: color 0.3s ease, letter-spacing 0.3s ease;
+  }
+  .overlay-nav a:hover { color: var(--text-white); letter-spacing: 0.05em; }
+  .overlay-close-btn {
+      position: absolute; top: 20px; right: 48px; background: transparent; border: none;
+      color: var(--text-white); cursor: pointer; font-size: 2rem; line-height: 1;
+  }
+
+  @media (max-width: 1024px) {
+      .navbar { padding: 16px 24px; }
+      .overlay-close-btn { right: 24px; }
+  }
+
+  @media (max-width: 768px) {
+      .nav-title { font-size: 0.9rem; }
+      .status-text { display: none; }
+      .nav-right { gap: 16px; }
+      .navbar { backdrop-filter: none; background: rgba(5, 5, 5, 0.9); }
+      .overlay-menu { backdrop-filter: none; background: rgba(5, 5, 5, 0.9); }
+  }
+
+  @media (max-width: 480px) {
+      .nav-location { display: none; }
+  }
+</style>

@@ -1,0 +1,24 @@
+<section class="paradigm-shift reveal" id="paradigm-shift" data-nav-title="The Paradigm Shift">
+  <div class="container">
+    <div class="line" aria-hidden="true"></div>
+    <h2 class="label">THE PARADIGM SHIFT</h2>
+    <p>Static models wait for human prompts. True autonomy requires a self-improving feedback loop. We are bridging the gap between digital intelligence and physical/economic execution.</p>
+  </div>
+</section>
+
+<style>
+  .paradigm-shift {
+      background-image: radial-gradient(var(--grid-line) 1.5px, transparent 1.5px);
+      background-size: 30px 30px; animation: pan-dots 20s linear infinite;
+  }
+
+  @keyframes pan-dots { 0% { background-position: 0 0; } 100% { background-position: 30px 30px; } }
+
+  .paradigm-shift .line {
+      width: 60px; height: 1px; background-color: var(--text-white);
+      margin: 0 auto 40px auto; box-shadow: 0 0 10px rgba(255,255,255,0.5);
+      transform: scaleX(0); transform-origin: center;
+      transition: transform 1.2s cubic-bezier(0.5, 0, 0, 1) 0.3s;
+  }
+  .paradigm-shift.active .line { transform: scaleX(1); }
+</style>

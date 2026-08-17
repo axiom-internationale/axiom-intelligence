@@ -1,0 +1,34 @@
+---
+import Layout from '../layout.astro';
+import ScrollProgress from '../components/scroll_progress.astro';
+import Navbar from '../components/navbar.astro';
+import Footer from '../components/footer.astro';
+
+import Hero from '../sections/hero.astro';
+import ParadigmShift from '../sections/paradigm_shift.astro';
+import AroLoop from '../sections/aro_loop.astro';
+import Ecosystem from '../sections/ecosystem.astro';
+import Deployment from '../sections/deployment.astro';
+import Moat from '../sections/moat.astro';
+import Philosophy from '../sections/philosophy.astro';
+---
+
+<Layout 
+  title="Axiom Intelligence - Autonomous Research Organisms"
+  description="Axiom Intelligence is building the infrastructure for the next era: a self-evolving superintelligence engine for autonomous research organisms (AROs) that independently execute in the real world."
+>
+  <ScrollProgress />
+  <Navbar />
+
+  <main>
+    <Hero />
+    <ParadigmShift />
+    <AroLoop />
+    <Ecosystem />
+    <Deployment />
+    <Moat />
+    <Philosophy />
+  </main>
+
+  <Footer />
+</Layout>
