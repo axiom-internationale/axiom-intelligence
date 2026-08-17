@@ -1,6 +1,6 @@
 # Axiom Intelligence
 
-**[axiomintelligence.pages.dev](https://www.axiomintelligence.pages.dev)**
+**[axiom-intelligence.pages.dev](https://axiom-intelligence.pages.dev)**
 
 The landing page for Axiom Intelligence — an AI deep-tech startup building self-evolving superintelligence engines for Autonomous Research Organisms (AROs).
 
@@ -89,7 +89,7 @@ Opens a local dev server with hot-reload at `http://localhost:4321`.
 bun run build
 ```
 
-Outputs a static site to `dist/`.
+Outputs a Cloudflare Worker bundle to `dist/`.
 
 ### Preview
 
@@ -99,11 +99,19 @@ bun run preview
 
 Serves the production build locally for testing.
 
+### Test
+
+```bash
+bun run test
+```
+
+Runs the Vitest test suite. Use `bun run test:watch` during development for watch mode.
+
 ---
 
 ## Architecture
 
-The site is a **single-page Astro static site** with no client-side framework.
+The site is a **single-page Astro site** deployed to Cloudflare Pages via the `@astrojs/cloudflare` adapter.
 
 - **`layout.astro`** provides the root HTML shell, SEO metadata, font imports, and loads the global stylesheet + interaction script.
 - **`pages/index.astro`** composes all sections in scroll order inside a `<main>` element.
@@ -125,6 +133,50 @@ Hero → Paradigm Shift → ARO Loop → Ecosystem → Deployment → Moat → P
 - **Typography** — Inter 300 (body) + JetBrains Mono (labels, monospace accents)
 - **Color system** — CSS custom properties in `:root` for consistent theming
 - **Motion** — CSS keyframe animations for backgrounds and text; JS-driven IntersectionObserver for scroll-triggered reveals
+
+---
+
+## Deployment
+
+The site deploys to **Cloudflare Pages** via Wrangler. CI/CD is handled automatically by GitHub Actions on every push to `master`.
+
+### Manual Deployment
+
+**Prerequisites:**
+
+1. [Install Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/)
+2. Authenticate: `wrangler login`
+3. Create a Cloudflare Pages project (first time only):
+
+```bash
+wrangler pages project create axiom-intelligence --production-branch master
+```
+
+**Deploy:**
+
+```bash
+bun run build
+wrangler pages deploy dist/
+```
+
+### GitHub Secrets
+
+For the CI/CD pipeline, add these secrets in your GitHub repository settings (`Settings → Secrets and variables → Actions`):
+
+| Secret | Description |
+|--------|-------------|
+| `CLOUDFLARE_API_TOKEN` | API token with Cloudflare Pages edit permissions |
+| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare account ID |
+| `CLOUDFLARE_PROJECT_NAME` | Your Cloudflare Pages project name (e.g. `axiom-intelligence`) |
+
+### CI/CD Pipeline
+
+GitHub Actions runs on every push and PR:
+
+1. **Install** — Bun setup, dependency install, Cloudflare type generation
+2. **Test** — Vitest unit tests
+3. **Build** — Astro production build
+4. **Deploy** — Automatic deploy to Cloudflare Pages on push to `master`
 
 ---
 
