@@ -1,0 +1,16 @@
+repos:
+  - repo: local
+    hooks:
+      - id: astro-lint
+        name: Astro Lint
+        entry: bun run lint
+        language: system
+        always_run: true
+        stages: [commit]
+
+      - id: astro-format
+        name: Astro Format
+        entry: bun run format
+        language: system
+        always_run: true
+        stages: [commit]

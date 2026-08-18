@@ -8,14 +8,14 @@ The landing page for Axiom Intelligence — an AI deep-tech startup building sel
 
 ## Tech Stack
 
-| Layer       | Technology                          |
-|-------------|--------------------------------------|
-| Framework   | [Astro](https://astro.build) v7.2.2  |
-| Language    | TypeScript (strict mode)            |
-| Runtime     | Node.js >= 22.12.0                   |
-| Package Mgr | [Bun](https://bun.sh)                |
-| Styling     | Hand-written CSS (modular, scoped)   |
-| Fonts       | Inter · JetBrains Mono (Google Fonts)|
+| Layer       | Technology                            |
+| ----------- | ------------------------------------- |
+| Framework   | [Astro](https://astro.build) v7.2.2   |
+| Language    | TypeScript (strict mode)              |
+| Runtime     | Node.js >= 22.12.0                    |
+| Package Mgr | [Bun](https://bun.sh)                 |
+| Styling     | Hand-written CSS (modular, scoped)    |
+| Fonts       | Inter · JetBrains Mono (Google Fonts) |
 
 No UI libraries, CSS frameworks, or animation libraries — everything is hand-crafted.
 
@@ -163,10 +163,10 @@ bun wrangler pages deploy dist/
 
 For the CI/CD pipeline, add these secrets in your GitHub repository settings (`Settings → Secrets and variables → Actions`):
 
-| Secret | Description |
-|--------|-------------|
-| `CLOUDFLARE_API_TOKEN` | API token with Cloudflare Pages edit permissions |
-| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare account ID |
+| Secret                    | Description                                                    |
+| ------------------------- | -------------------------------------------------------------- |
+| `CLOUDFLARE_API_TOKEN`    | API token with Cloudflare Pages edit permissions               |
+| `CLOUDFLARE_ACCOUNT_ID`   | Your Cloudflare account ID                                     |
 | `CLOUDFLARE_PROJECT_NAME` | Your Cloudflare Pages project name (e.g. `axiom-intelligence`) |
 
 ### CI/CD Pipeline

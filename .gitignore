@@ -12,6 +12,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+output.txt
+eslint-output.txt
 
 # environment variables
 .env
