@@ -149,14 +149,14 @@ The site deploys to **Cloudflare Pages** via Wrangler. CI/CD is handled automati
 3. Create a Cloudflare Pages project (first time only):
 
 ```bash
-wrangler pages project create axiom-intelligence --production-branch master
+bun wrangler pages project create axiom-intelligence --production-branch master
 ```
 
 **Deploy:**
 
 ```bash
 bun run build
-wrangler pages deploy dist/
+bun wrangler pages deploy dist/
 ```
 
 ### GitHub Secrets
